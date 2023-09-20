@@ -42,45 +42,51 @@ class UserContoller extends Controller
                return view('check');
             }
 
-    /**
 
+
+
+// ------------------------if we retun an new message as array in json-------------------------------------
+
+
+
+    /**
      * @param Request $request
      * @return Application|Factory|View|JsonResponse
      */
-    // public function check(Request $request)
-    // {
-    //     // Check if the request is an Ajax request
-    //     if ($request->ajax()) {
-    //         // Get the encrypted data from the request
-    //         $encryptedData = $request->input('encrypted_data');
-    //         // Password for decryption and re-encryption
-    //         $password = "123456";
+    public function check(Request $request)
+    {
+        // Check if the request is an Ajax request
+        if ($request->ajax()) {
+            // Get the encrypted data from the request
+            $encryptedData = $request->input('encrypted_data');
+            // Password for decryption and re-encryption
+            $password = "123456";
 
-    //         // Decrypt the received data
-    //         $decrypted = CryptoJsAes::decrypt($encryptedData, $password);
-    //         $decryptedDataArray = json_decode($decrypted, true);
-    //         //dd($decryptedDataArray);
-    //         // Additional data to add
-    //         $mergedData = [
-    //             'message' => 'Data successfully decrypted, additional data added, and re-encrypted.',
-    //             'extra' => 'This is some additional information added to the decrypted data.'
-    //         ];
+            // Decrypt the received data
+            $decrypted = CryptoJsAes::decrypt($encryptedData, $password);
+            $decryptedDataArray = json_decode($decrypted, true);
+            //dd($decryptedDataArray);
+            // Additional data to add
+            $mergedData = [
+                'message' => 'Data successfully decrypted, additional data added, and re-encrypted.',
+                'extra' => 'This is some additional information added to the decrypted data.'
+            ];
 
-    //         // Encrypt the data again, including the additional data
-    //         $reEncrypted = CryptoJsAes::encrypt(json_encode($mergedData), $password);
-
-
-    //         // Return the re-encrypted data as JSON
-    //         return response()->json(['re_encrypted_data' => $reEncrypted]);
-    //     }
-
-    //     // If it's not an Ajax request, return a view with the form or handle non-Ajax behavior.
-    //     return view('check');
-    // }
+            // Encrypt the data again, including the additional data
+            $reEncrypted = CryptoJsAes::encrypt(json_encode($mergedData), $password);
 
 
+            // Return the re-encrypted data as JSON
+            return response()->json(['re_encrypted_data' => $reEncrypted]);
+        }
+
+        // If it's not an Ajax request, return a view with the form or handle non-Ajax behavior.
+        return view('check');
+    }
 
 
+
+// -------------------If we merge two array ------------------
 
 //    /**
 //     * @param Request $request
