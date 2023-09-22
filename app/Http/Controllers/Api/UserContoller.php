@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Personal_Access_Client;
 use Nullix\CryptoJsAes\CryptoJsAes;
 
 class UserContoller extends Controller
@@ -17,15 +18,15 @@ class UserContoller extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    function index(Request $request)
+    function index(Request $request): JsonResponse
     {
         $request->validate([
-            'mobile' => 'required',
-            'imei' => 'required',
+            'client_id' => 'required',
+            'client_secret' => 'required',
         ]);
 
-        $user = User::where('mobile', $request->mobile)
-            ->where('imei', $request->imei)
+        $user = Personal_Access_Client::where('client_id', $request->client_id)
+            ->where('client_secret',$request->client_secret)
             ->first();
 
         if (!$user) {

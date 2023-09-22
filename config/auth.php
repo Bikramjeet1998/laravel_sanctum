@@ -43,7 +43,7 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'personal_access_clients', // Use your custom provider
             'hash' => false,
         ],
     ],
@@ -71,10 +71,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'personal_access_clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Personal_Access_Client::class, // Change this to your custom model
+        ],
     ],
 
     /*
