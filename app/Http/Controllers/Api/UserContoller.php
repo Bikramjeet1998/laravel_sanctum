@@ -45,6 +45,7 @@ class UserContoller extends Controller
 
     public function userData()
     {
+        
         // Get the user data from the user model.
         $user = User::all();
 
