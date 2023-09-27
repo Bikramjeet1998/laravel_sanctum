@@ -16,9 +16,18 @@ use App\Http\Controllers\Api\UserContoller;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//
+//Route::group(['middleware' => 'auth:sanctum'], function () {
+//    Route::get('getUser',[userContoller::class,'userData']);
+//});
+
+Route::group(['middleware' => 'custom.auth'], function () {
+    Route::get('getUser',[userContoller::class,'userData']);
 });
+
+
 
 Route::post('/login',[UserContoller::class,'index']);
 Route::post('/check',[UserContoller::class,'check']);
+//Route::get('getUser',[userContoller::class,'userData']);
+

@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'sanctum',
             'provider' => 'personal_access_clients', // Use your custom provider
             'hash' => false,
         ],

@@ -43,6 +43,15 @@ class UserContoller extends Controller
                return view('check');
             }
 
+    public function userData()
+    {
+        // Get the user data from the user model.
+        $user = User::all();
+
+
+        // Return the user data as a JSON response.
+        return response()->json(['user' => $user], 200);
+    }
 
 
 
