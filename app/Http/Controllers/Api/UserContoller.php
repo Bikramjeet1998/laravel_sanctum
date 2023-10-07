@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\EncryptionService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -10,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Personal_Access_Client;
+use Illuminate\Http\Response;
 use Nullix\CryptoJsAes\CryptoJsAes;
 
 class UserContoller extends Controller
@@ -45,7 +47,7 @@ class UserContoller extends Controller
 
     public function userData()
     {
-        
+
         // Get the user data from the user model.
         $user = User::all();
 
@@ -95,6 +97,15 @@ class UserContoller extends Controller
         return view('check');
     }
 
+    public function verifyUser(Request $request){
+
+        dd($request->encryptedData);
+//        $encryptionService = new EncryptionService();
+//        dd($encryptionService->decrypt(base64_decode($request->data)));
+
+        return "BikramSinghJaskaran";
+
+    }
 
 }
 

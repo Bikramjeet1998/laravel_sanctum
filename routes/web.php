@@ -24,5 +24,5 @@ Route::get('/', function () {
 Route :: get('form', [UserContoller::class,'login']);
 
 Route::post('/check',[UserContoller::class,'check'])->name("check");
-Route::get('/encrypt',[AsymmetricController::class,'encryptData']);
+Route::get('/testing',[AsymmetricController::class,'testing']);
 

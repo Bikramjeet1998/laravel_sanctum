@@ -31,3 +31,4 @@ Route::post('/login',[UserContoller::class,'index']);
 // Route::post('/check',[UserContoller::class,'check']);
 //Route::get('getUser',[userContoller::class,'userData']);
 
+Route::post('verify-user', [UserContoller::class, 'verifyUser'])->middleware('encrypt');
