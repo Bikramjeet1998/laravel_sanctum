@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\UserContoller;
+use App\Http\Controllers\Api\UserController;
 
 
 /*
@@ -18,17 +18,17 @@ use App\Http\Controllers\Api\UserContoller;
 
 //
 //Route::group(['middleware' => 'auth:sanctum'], function () {
-//    Route::get('getUser',[userContoller::class,'userData']);
+//    Route::get('getUser',[userController::class,'userData']);
 //});
 
 Route::group(['middleware' => 'custom.auth'], function () {
-    Route::get('getUser',[userContoller::class,'userData']);
+    Route::get('getUser',[UserController::class,'userData']);
 });
 
 
 
-Route::post('/login',[UserContoller::class,'index']);
-// Route::post('/check',[UserContoller::class,'check']);
-//Route::get('getUser',[userContoller::class,'userData']);
+Route::post('/login',[UserController::class,'index']);
+// Route::post('/check',[UserController::class,'check']);
+//Route::get('getUser',[userController::class,'userData']);
 
-Route::post('verify-user', [UserContoller::class, 'verifyUser'])->middleware('encrypt');
+Route::post('verify-user', [UserController::class, 'verifyUser'])->middleware('encrypt');

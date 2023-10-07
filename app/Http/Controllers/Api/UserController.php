@@ -14,7 +14,7 @@ use App\Models\Personal_Access_Client;
 use Illuminate\Http\Response;
 use Nullix\CryptoJsAes\CryptoJsAes;
 
-class UserContoller extends Controller
+class UserController extends Controller
 {
     /**
      * @param Request $request
