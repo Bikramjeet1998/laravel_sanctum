@@ -15,7 +15,7 @@
 {{-- </body> --}}
 {{-- </html> --}}
 
-<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -54,7 +54,7 @@
         $(document).ready(function() {
 
             $("#mobileForm").submit(function(e) {
-                alert('Form submitterd');
+
                 e.preventDefault(); // Prevent the form from submitting normally
 
                 let valueToEncrypt = $("#mobile_number").val();

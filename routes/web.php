@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\UserContoller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AsymmetricController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Route::get('/', function () {
 Route :: get('form', [UserContoller::class,'login']);
 
 Route::post('/check',[UserContoller::class,'check'])->name("check");
+Route::get('/encrypt',[AsymmetricController::class,'encryptData']);
 

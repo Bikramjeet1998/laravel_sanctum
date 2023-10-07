@@ -28,6 +28,6 @@ Route::group(['middleware' => 'custom.auth'], function () {
 
 
 Route::post('/login',[UserContoller::class,'index']);
-Route::post('/check',[UserContoller::class,'check']);
+// Route::post('/check',[UserContoller::class,'check']);
 //Route::get('getUser',[userContoller::class,'userData']);
 
