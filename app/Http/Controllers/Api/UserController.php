@@ -97,9 +97,15 @@ class UserController extends Controller
         return view('check');
     }
 
+    /**
+     * Verify the user.
+     *
+     * @param Request $request The request object.
+     * @return string The user verification result.
+     */
     public function verifyUser(Request $request){
-
-        dd($request->encryptedData);
+        dd($request->name);
+        // dd($request->encryptedData);
 //        $encryptionService = new EncryptionService();
 //        dd($encryptionService->decrypt(base64_decode($request->data)));
 

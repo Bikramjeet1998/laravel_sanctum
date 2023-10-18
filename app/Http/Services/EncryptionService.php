@@ -15,7 +15,10 @@ class EncryptionService
      */
     public function encrypt($data)
     {
-        $publicKeyPath = 'keys/public.pem';
+
+        $publicKeyPath = 'keys/public_key.pem';
+
+
         if (Storage::disk('local')->exists($publicKeyPath)) {
             $publicKey = RSA::load(
                 Storage::disk('local')->get($publicKeyPath)
@@ -34,7 +37,7 @@ class EncryptionService
      */
     public function decrypt($ciphertext)
     {
-        $privateKeyPath = 'keys/private.pem';
+        $privateKeyPath = 'keys/private_key.pem';
         if (Storage::disk('local')->exists($privateKeyPath)) {
             $privateKey = RSA::load(
                 Storage::disk('local')->get($privateKeyPath)

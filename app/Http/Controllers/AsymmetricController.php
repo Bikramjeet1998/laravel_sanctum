@@ -42,14 +42,23 @@ class AsymmetricController extends Controller
      * @throws FileNotFoundException
      */
     public function testing(){
-        $data = "Bikramjeet Singh";
+//        $data = "Bikramjeet Singh";
+        $data_json =
+            [
+                "country_code" => "+91",
+                "mobile" => "9530654704"
+            ];
+//        $data = \response()->json($data_json);
+
+        $data = json_encode($data_json, true);
         $ciphertext = $this->encryptData($data);
+        $finaldata =  base64_encode($ciphertext);
+       dd($finaldata);
 
-        dump("Ciphertext: " . $ciphertext);
-        $plaintext = $this->decryptData($ciphertext);
+//        $plaintext = $this->decryptData($ciphertext);
+//        dd(json_decode($plaintext));
+//        dump("Plaintext: " . json_decode($plaintext, true));
 
-        dump("Plaintext: " . $plaintext);
-
-        return $plaintext;
+        return json_decode($plaintext,true);
     }
 }
