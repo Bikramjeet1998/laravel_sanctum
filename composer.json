@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3",
         "brainfoolong/cryptojs-aes-php": "^2.2",
+        "darkaonline/l5-swagger": "^8.5",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

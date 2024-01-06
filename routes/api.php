@@ -32,3 +32,4 @@ Route::post('/login',[UserController::class,'index']);
 //Route::get('getUser',[userController::class,'userData']);
 
 Route::post('verify-user', [UserController::class, 'verifyUser'])->middleware('encrypt');
+Route::post('/encrypt', [UserController::class, 'encryptIMEI']);
